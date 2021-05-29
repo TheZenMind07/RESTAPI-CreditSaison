@@ -4,10 +4,6 @@ const lookup = require("binlookup")();
 const app = express();
 
 app.get("/", function (req, res) {
-    //     const url = "https://lookup.binlist.net/45717360";
-    //     https.get(url, function (response) {
-    //         console.log(response);
-    //     });
     lookup("45717360", function (err, data) {
         if (err) return console.error(err);
 
