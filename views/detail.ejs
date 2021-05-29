@@ -1,0 +1,66 @@
+<%- include("header") %>
+
+
+        <body>
+                <div class="box" id="heading">
+                        <h1>
+                                Enter the Number
+                        </h1>
+                </div>
+
+                <form class="item" action="/" method="POST">
+                        <input type="text" name="numbers" placeholder="New item" autocomplete="off">
+                        <button type="submit" name="button">Submit</button>
+                </form>
+
+                <% listItems.forEach(item=> { %>
+
+                        <div class="item">
+                                <p>
+                                        <%=item.type %>
+                                </p>
+
+                        </div>
+
+                        <% }); %>
+                                <!-- <table class="table">
+                        <thead>
+                                <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                </tr>
+                                <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry</td>
+                                        <td>the Bird</td>
+                                        <td>@twitter</td>
+                                </tr>
+                        </tbody>
+                </table> -->
+
+
+                                <!-- <script src="" async defer></script> -->
+        </body>
+
+
+
+
+
+
+        <%- include("footer") %>

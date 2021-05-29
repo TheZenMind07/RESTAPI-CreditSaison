@@ -1,16 +1,40 @@
 const express = require("express");
-const https = require("https");
-const lookup = require("binlookup")();
+const bodyParser = require("body-parser");
+var lookup = require("binlookup")();
+
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.set("view engine", "ejs");
+
+let numbers = [];
+let listItems = [];
 
 app.get("/", function (req, res) {
-    lookup("45717360", function (err, data) {
-        if (err) return console.error(err);
-
-        console.log(data);
-    });
+    //     listItems = [];
+    res.render("detail", { listItems: listItems });
+    //     listItems = [];
 });
 
-app.listen(3000, function () {
-    console.log("Server is running at port 3000");
+app.post("/", function (req, res) {
+    const input = req.body.numbers;
+    // callback
+    let listItems = [];
+    lookup(input, function (err, data) {
+        if (err) return console.error(err);
+        listItems.push(data);
+        res.render("detail", { listItems: listItems });
+        listItems = [];
+    });
+
+    //     res.redirect("/");
+});
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3030;
+}
+
+app.listen(port, function () {
+    console.log("Server 3000 is up and running");
 });
