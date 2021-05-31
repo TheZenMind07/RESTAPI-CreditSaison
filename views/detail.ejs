@@ -17,8 +17,24 @@
 
                         <div class="item">
                                 <p>
-                                        <%=item.type %>
+                                        Scheme Type : <%=item.scheme %>
                                 </p>
+
+                                <p>
+                                        Card Type : <%=item.type %>
+                                </p>
+
+                                <p>
+                                        Bank Name : <%=item.bank.name %>
+                                </p>
+                                <p>
+                                        Country Name : <%=item.country.name %>
+                                </p>
+
+                                <p>
+                                        Currency : <%=item.country.currency %>
+                                </p>
+
 
                         </div>
 
@@ -63,4 +79,4 @@
 
 
 
-        <%- include("footer") %>
+        <!-- <%- include("footer") %> -->

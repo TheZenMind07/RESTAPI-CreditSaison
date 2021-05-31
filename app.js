@@ -7,7 +7,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-let numbers = [];
 let listItems = [];
 
 app.get("/", function (req, res) {
@@ -24,7 +23,7 @@ app.post("/", function (req, res) {
         if (err) return console.error(err);
         listItems.push(data);
         res.render("detail", { listItems: listItems });
-        listItems = [];
+        console.log(listItems);
     });
 
     //     res.redirect("/");
@@ -32,7 +31,7 @@ app.post("/", function (req, res) {
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-    port = 3030;
+    port = 3000;
 }
 
 app.listen(port, function () {
